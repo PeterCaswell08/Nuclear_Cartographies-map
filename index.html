@@ -201,19 +201,24 @@
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Edited-Attributes-for-nuclear-bombs_name'] !== null ? autolinker.link(feature.properties['Edited-Attributes-for-nuclear-bombs_name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Edited-Attributes-for-nuclear-bombs_name</th>\
+                        <td>' + (feature.properties['Edited-Attributes-for-nuclear-bombs_name'] !== null ? autolinker.link(feature.properties['Edited-Attributes-for-nuclear-bombs_name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:date:utc'] !== null ? autolinker.link(feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:date:utc'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Edited-Attributes-for-nuclear-bombs_nuclear_explosion:date:utc</th>\
+                        <td>' + (feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:date:utc'] !== null ? autolinker.link(feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:date:utc'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:type'] !== null ? autolinker.link(feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:type'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Edited-Attributes-for-nuclear-bombs_nuclear_explosion:type</th>\
+                        <td>' + (feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:type'] !== null ? autolinker.link(feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'] !== null ? autolinker.link(feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield</th>\
+                        <td>' + (feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'] !== null ? autolinker.link(feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:device'] !== null ? autolinker.link(feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:device'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Edited-Attributes-for-nuclear-bombs_nuclear_explosion:device</th>\
+                        <td>' + (feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:device'] !== null ? autolinker.link(feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:device'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
