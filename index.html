@@ -199,30 +199,29 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Codename</th>\
-                        <td>' + (feature.properties['Edited-Attributes-for-nuclear-bombs_name'] !== null ? autolinker.link(feature.properties['Edited-Attributes-for-nuclear-bombs_name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Codename'] !== null ? autolinker.link(feature.properties['Codename'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Date: UTC</th>\
-                        <td>' + (feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:date:utc'] !== null ? autolinker.link(feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:date:utc'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Date</th>\
+                        <td>' + (feature.properties['Date'] !== null ? autolinker.link(feature.properties['Date'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Explosion type</th>\
-                        <td>' + (feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:type'] !== null ? autolinker.link(feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:type'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Explosion type'] !== null ? autolinker.link(feature.properties['Explosion type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Yield in kT</th>\
-                        <td>' + (feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'] !== null ? autolinker.link(feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Yield in kT'] !== null ? autolinker.link(feature.properties['Yield in kT'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Device</th>\
-                        <td>' + (feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:device'] !== null ? autolinker.link(feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:device'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Device type</th>\
+                        <td>' + (feature.properties['Device type'] !== null ? autolinker.link(feature.properties['Device type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
         function style_Atomictests_3_0(feature) {
-            if (feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'] >= 0.000000 && feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'] <= 10.000000 ) {
+            if (feature.properties['Yield in kT'] >= 0.000000 && feature.properties['Yield in kT'] <= 10.000000 ) {
                 return {
                 pane: 'pane_Atomictests_3',
                 radius: 4.0,
@@ -238,7 +237,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'] >= 10.000000 && feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'] <= 40.000000 ) {
+            if (feature.properties['Yield in kT'] >= 10.000000 && feature.properties['Yield in kT'] <= 40.000000 ) {
                 return {
                 pane: 'pane_Atomictests_3',
                 radius: 6.28572,
@@ -254,7 +253,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'] >= 40.000000 && feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'] <= 80.000000 ) {
+            if (feature.properties['Yield in kT'] >= 40.000000 && feature.properties['Yield in kT'] <= 80.000000 ) {
                 return {
                 pane: 'pane_Atomictests_3',
                 radius: 8.57142,
@@ -270,7 +269,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'] >= 80.000000 && feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'] <= 150.000000 ) {
+            if (feature.properties['Yield in kT'] >= 80.000000 && feature.properties['Yield in kT'] <= 150.000000 ) {
                 return {
                 pane: 'pane_Atomictests_3',
                 radius: 10.85714,
@@ -286,7 +285,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'] >= 150.000000 && feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'] <= 330.000000 ) {
+            if (feature.properties['Yield in kT'] >= 150.000000 && feature.properties['Yield in kT'] <= 330.000000 ) {
                 return {
                 pane: 'pane_Atomictests_3',
                 radius: 13.14286,
@@ -302,7 +301,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'] >= 330.000000 && feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'] <= 590.000000 ) {
+            if (feature.properties['Yield in kT'] >= 330.000000 && feature.properties['Yield in kT'] <= 590.000000 ) {
                 return {
                 pane: 'pane_Atomictests_3',
                 radius: 15.42858,
@@ -318,7 +317,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'] >= 590.000000 && feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'] <= 1280.000000 ) {
+            if (feature.properties['Yield in kT'] >= 590.000000 && feature.properties['Yield in kT'] <= 1280.000000 ) {
                 return {
                 pane: 'pane_Atomictests_3',
                 radius: 17.71428,
@@ -334,7 +333,7 @@
                 interactive: true,
             }
             }
-            if (feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'] >= 1280.000000 && feature.properties['Edited-Attributes-for-nuclear-bombs_nuclear_explosion:yield'] <= 2600.000000 ) {
+            if (feature.properties['Yield in kT'] >= 1280.000000 && feature.properties['Yield in kT'] <= 2600.000000 ) {
                 return {
                 pane: 'pane_Atomictests_3',
                 radius: 20.0,
