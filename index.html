@@ -197,9 +197,7 @@
         map.addLayer(layer_Frenchcontrolleduraniunmines_2);
         function pop_Atomictests_3(feature, layer) {
             var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
-                    </tr>\
+
                     <tr>\
                         <th scope="row">Codename</th>\
                         <td>' + (feature.properties['Edited-Attributes-for-nuclear-bombs_name'] !== null ? autolinker.link(feature.properties['Edited-Attributes-for-nuclear-bombs_name'].toLocaleString()) : '') + '</td>\
