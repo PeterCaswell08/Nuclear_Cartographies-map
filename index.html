@@ -23,7 +23,6 @@
         </div>
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script>
-        <script src="js/leaflet-svg-shape-markers.min.js"></script>
         <script src="js/leaflet.rotatedMarker.js"></script>
         <script src="js/leaflet.pattern.js"></script>
         <script src="js/leaflet-hash.js"></script>
@@ -34,7 +33,7 @@
         <script src="data/Nuclearplant_1.js"></script>
         <script src="data/Frenchcontrolleduraniunmines_2.js"></script>
         <script src="data/Atomictests_3.js"></script>
-        <script src="data/Metropolitanuraniummines_4.js"></script>
+        <script src="data/Metropolitanuranium_mines_4.js"></script>
         <script src="data/Nuclearwasterepositories_5.js"></script>
         <script>
         var map = L.map('map', {
@@ -68,10 +67,12 @@
                         <td colspan="2">' + (feature.properties['country_long'] !== null ? autolinker.link(feature.properties['country_long'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['capacity_mw'] !== null ? autolinker.link(feature.properties['capacity_mw'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">capacity_mw</th>\
+                        <td>' + (feature.properties['capacity_mw'] !== null ? autolinker.link(feature.properties['capacity_mw'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['latitude'] !== null ? autolinker.link(feature.properties['latitude'].toLocaleString()) : '') + '</td>\
@@ -80,10 +81,12 @@
                         <td colspan="2">' + (feature.properties['longitude'] !== null ? autolinker.link(feature.properties['longitude'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['commissioning_year'] !== null ? autolinker.link(feature.properties['commissioning_year'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">commissioning_year</th>\
+                        <td>' + (feature.properties['commissioning_year'] !== null ? autolinker.link(feature.properties['commissioning_year'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['owner'] !== null ? autolinker.link(feature.properties['owner'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">owner</th>\
+                        <td>' + (feature.properties['owner'] !== null ? autolinker.link(feature.properties['owner'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['source'] !== null ? autolinker.link(feature.properties['source'].toLocaleString()) : '') + '</td>\
@@ -104,16 +107,12 @@
         function style_Nuclearplant_1_0() {
             return {
                 pane: 'pane_Nuclearplant_1',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(228,228,60,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/background_tilted_square_rounded.svg',
+            iconSize: [22.799999999999997, 22.799999999999997]
+        }),
                 interactive: true,
             }
         }
@@ -132,7 +131,7 @@
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_Nuclearplant_1_0(feature));
+                return L.marker(latlng, style_Nuclearplant_1_0(feature));
             },
         });
         bounds_group.addLayer(layer_Nuclearplant_1);
@@ -140,13 +139,16 @@
         function pop_Frenchcontrolleduraniunmines_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Still operational?'] !== null ? autolinker.link(feature.properties['Still operational?'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">In activity</th>\
+                        <td>' + (feature.properties['In activity'] !== null ? autolinker.link(feature.properties['In activity'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Exploitant(s)'] !== null ? autolinker.link(feature.properties['Exploitant(s)'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Operator(s)</th>\
+                        <td>' + (feature.properties['Operator(s)'] !== null ? autolinker.link(feature.properties['Operator(s)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['lat'] !== null ? autolinker.link(feature.properties['lat'].toLocaleString()) : '') + '</td>\
@@ -161,17 +163,12 @@
         function style_Frenchcontrolleduraniunmines_2_0() {
             return {
                 pane: 'pane_Frenchcontrolleduraniunmines_2',
-                shape: 'square',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(226,44,44,1.0)',
+        rotationAngle: 0.00872665,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/poi_mine.svg',
+            iconSize: [22.799999999999997, 22.799999999999997]
+        }),
                 interactive: true,
             }
         }
@@ -190,7 +187,7 @@
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_Frenchcontrolleduraniunmines_2_0(feature));
+                return L.marker(latlng, style_Frenchcontrolleduraniunmines_2_0(feature));
             },
         });
         bounds_group.addLayer(layer_Frenchcontrolleduraniunmines_2);
@@ -206,7 +203,8 @@
                         <td>' + (feature.properties['Date'] !== null ? autolinker.link(feature.properties['Date'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Explosion type'] !== null ? autolinker.link(feature.properties['Explosion type'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Explosion type</th>\
+                        <td>' + (feature.properties['Explosion type'] !== null ? autolinker.link(feature.properties['Explosion type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Yield in kT</th>\
@@ -224,128 +222,96 @@
             if (feature.properties['Yield in kT'] >= 0.000000 && feature.properties['Yield in kT'] <= 10.000000 ) {
                 return {
                 pane: 'pane_Atomictests_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(227,26,28,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/place_of_worship_bahai3.svg',
+            iconSize: [7.6, 7.6]
+        }),
                 interactive: true,
             }
             }
             if (feature.properties['Yield in kT'] >= 10.000000 && feature.properties['Yield in kT'] <= 40.000000 ) {
                 return {
                 pane: 'pane_Atomictests_3',
-                radius: 6.28572,
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(227,26,28,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/place_of_worship_bahai3.svg',
+            iconSize: [11.942868, 11.942868]
+        }),
                 interactive: true,
             }
             }
             if (feature.properties['Yield in kT'] >= 40.000000 && feature.properties['Yield in kT'] <= 80.000000 ) {
                 return {
                 pane: 'pane_Atomictests_3',
-                radius: 8.57142,
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(227,26,28,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/place_of_worship_bahai3.svg',
+            iconSize: [16.285698, 16.285698]
+        }),
                 interactive: true,
             }
             }
             if (feature.properties['Yield in kT'] >= 80.000000 && feature.properties['Yield in kT'] <= 150.000000 ) {
                 return {
                 pane: 'pane_Atomictests_3',
-                radius: 10.85714,
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(227,26,28,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/place_of_worship_bahai3.svg',
+            iconSize: [20.628566, 20.628566]
+        }),
                 interactive: true,
             }
             }
             if (feature.properties['Yield in kT'] >= 150.000000 && feature.properties['Yield in kT'] <= 330.000000 ) {
                 return {
                 pane: 'pane_Atomictests_3',
-                radius: 13.14286,
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(227,26,28,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/place_of_worship_bahai3.svg',
+            iconSize: [24.971434, 24.971434]
+        }),
                 interactive: true,
             }
             }
             if (feature.properties['Yield in kT'] >= 330.000000 && feature.properties['Yield in kT'] <= 590.000000 ) {
                 return {
                 pane: 'pane_Atomictests_3',
-                radius: 15.42858,
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(227,26,28,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/place_of_worship_bahai3.svg',
+            iconSize: [29.314301999999998, 29.314301999999998]
+        }),
                 interactive: true,
             }
             }
             if (feature.properties['Yield in kT'] >= 590.000000 && feature.properties['Yield in kT'] <= 1280.000000 ) {
                 return {
                 pane: 'pane_Atomictests_3',
-                radius: 17.71428,
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(227,26,28,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/place_of_worship_bahai3.svg',
+            iconSize: [33.657132, 33.657132]
+        }),
                 interactive: true,
             }
             }
             if (feature.properties['Yield in kT'] >= 1280.000000 && feature.properties['Yield in kT'] <= 2600.000000 ) {
                 return {
                 pane: 'pane_Atomictests_3',
-                radius: 20.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(227,26,28,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/place_of_worship_bahai3.svg',
+            iconSize: [38.0, 38.0]
+        }),
                 interactive: true,
             }
             }
@@ -365,21 +331,22 @@
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_Atomictests_3_0(feature));
+                return L.marker(latlng, style_Atomictests_3_0(feature));
             },
         });
         bounds_group.addLayer(layer_Atomictests_3);
         map.addLayer(layer_Atomictests_3);
-        function pop_Metropolitanuraniummines_4(feature, layer) {
+        function pop_Metropolitanuranium_mines_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['nom_site'] !== null ? autolinker.link(feature.properties['nom_site'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">nom_site</th>\
+                        <td>' + (feature.properties['nom_site'] !== null ? autolinker.link(feature.properties['nom_site'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>code_site</strong><br />' + (feature.properties['code_site'] !== null ? autolinker.link(feature.properties['code_site'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['code_site'] !== null ? autolinker.link(feature.properties['code_site'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['georeferencement_non_verifie'] !== null ? autolinker.link(feature.properties['georeferencement_non_verifie'].toLocaleString()) : '') + '</td>\
@@ -400,7 +367,8 @@
                         <td colspan="2">' + (feature.properties['bounds_commune'] !== null ? autolinker.link(feature.properties['bounds_commune'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['nom_departement'] !== null ? autolinker.link(feature.properties['nom_departement'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">nom_departement</th>\
+                        <td>' + (feature.properties['nom_departement'] !== null ? autolinker.link(feature.properties['nom_departement'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['code_departement'] !== null ? autolinker.link(feature.properties['code_departement'].toLocaleString()) : '') + '</td>\
@@ -418,7 +386,8 @@
                         <td colspan="2">' + (feature.properties['bounds_region'] !== null ? autolinker.link(feature.properties['bounds_region'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['type_site'] !== null ? autolinker.link(feature.properties['type_site'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">type_site</th>\
+                        <td>' + (feature.properties['type_site'] !== null ? autolinker.link(feature.properties['type_site'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['bounds_departement'] !== null ? autolinker.link(feature.properties['bounds_departement'].toLocaleString()) : '') + '</td>\
@@ -427,43 +396,38 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Metropolitanuraniummines_4_0() {
+        function style_Metropolitanuranium_mines_4_0() {
             return {
-                pane: 'pane_Metropolitanuraniummines_4',
-                shape: 'square',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(60,60,213,1.0)',
+                pane: 'pane_Metropolitanuranium_mines_4',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/poi_mine.svg',
+            iconSize: [15.2, 15.2]
+        }),
                 interactive: true,
             }
         }
-        map.createPane('pane_Metropolitanuraniummines_4');
-        map.getPane('pane_Metropolitanuraniummines_4').style.zIndex = 404;
-        map.getPane('pane_Metropolitanuraniummines_4').style['mix-blend-mode'] = 'normal';
-        var layer_Metropolitanuraniummines_4 = new L.geoJson(json_Metropolitanuraniummines_4, {
+        map.createPane('pane_Metropolitanuranium_mines_4');
+        map.getPane('pane_Metropolitanuranium_mines_4').style.zIndex = 404;
+        map.getPane('pane_Metropolitanuranium_mines_4').style['mix-blend-mode'] = 'normal';
+        var layer_Metropolitanuranium_mines_4 = new L.geoJson(json_Metropolitanuranium_mines_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Metropolitanuraniummines_4',
-            layerName: 'layer_Metropolitanuraniummines_4',
-            pane: 'pane_Metropolitanuraniummines_4',
-            onEachFeature: pop_Metropolitanuraniummines_4,
+            dataVar: 'json_Metropolitanuranium_mines_4',
+            layerName: 'layer_Metropolitanuranium_mines_4',
+            pane: 'pane_Metropolitanuranium_mines_4',
+            onEachFeature: pop_Metropolitanuranium_mines_4,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_Metropolitanuraniummines_4_0(feature));
+                return L.marker(latlng, style_Metropolitanuranium_mines_4_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Metropolitanuraniummines_4);
-        map.addLayer(layer_Metropolitanuraniummines_4);
+        bounds_group.addLayer(layer_Metropolitanuranium_mines_4);
+        map.addLayer(layer_Metropolitanuranium_mines_4);
         function pop_Nuclearwasterepositories_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -515,176 +479,132 @@
                 case 'AEN':
                     return {
                 pane: 'pane_Nuclearwasterepositories_5',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(232,98,45,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/skull.svg',
+            iconSize: [15.2, 15.2]
+        }),
                 interactive: true,
             }
                     break;
                 case 'Andra':
                     return {
                 pane: 'pane_Nuclearwasterepositories_5',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(93,234,77,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/skull.svg',
+            iconSize: [15.2, 15.2]
+        }),
                 interactive: true,
             }
                     break;
                 case 'CEA Civil':
                     return {
                 pane: 'pane_Nuclearwasterepositories_5',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(86,149,220,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/skull.svg',
+            iconSize: [15.2, 15.2]
+        }),
                 interactive: true,
             }
                     break;
                 case 'CEA DAM':
                     return {
                 pane: 'pane_Nuclearwasterepositories_5',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(169,202,112,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/skull.svg',
+            iconSize: [15.2, 15.2]
+        }),
                 interactive: true,
             }
                     break;
                 case 'Defense':
                     return {
                 pane: 'pane_Nuclearwasterepositories_5',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(122,227,169,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/skull.svg',
+            iconSize: [15.2, 15.2]
+        }),
                 interactive: true,
             }
                     break;
                 case 'D�fense':
                     return {
                 pane: 'pane_Nuclearwasterepositories_5',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(214,197,121,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/skull.svg',
+            iconSize: [15.2, 15.2]
+        }),
                 interactive: true,
             }
                     break;
                 case 'EDF':
                     return {
                 pane: 'pane_Nuclearwasterepositories_5',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(166,95,208,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/skull.svg',
+            iconSize: [15.2, 15.2]
+        }),
                 interactive: true,
             }
                     break;
                 case 'Framatome':
                     return {
                 pane: 'pane_Nuclearwasterepositories_5',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(227,101,135,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/skull.svg',
+            iconSize: [15.2, 15.2]
+        }),
                 interactive: true,
             }
                     break;
                 case 'Industrie':
                     return {
                 pane: 'pane_Nuclearwasterepositories_5',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(210,43,48,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/skull.svg',
+            iconSize: [15.2, 15.2]
+        }),
                 interactive: true,
             }
                     break;
                 case 'Orano':
                     return {
                 pane: 'pane_Nuclearwasterepositories_5',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(236,22,200,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/skull.svg',
+            iconSize: [15.2, 15.2]
+        }),
                 interactive: true,
             }
                     break;
-                case 'NULL':
+                default:
                     return {
                 pane: 'pane_Nuclearwasterepositories_5',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(136,224,224,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/skull.svg',
+            iconSize: [15.2, 15.2]
+        }),
                 interactive: true,
             }
                     break;
@@ -705,11 +625,13 @@
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Nuclearwasterepositories_5_0(feature));
+                return L.marker(latlng, style_Nuclearwasterepositories_5_0(feature));
             },
         });
         bounds_group.addLayer(layer_Nuclearwasterepositories_5);
         map.addLayer(layer_Nuclearwasterepositories_5);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'Nuclear-waste-repositories<br /><table><tr><td style="text-align: center;"><img src="legend/Nuclearwasterepositories_5_AEN0.png" /></td><td>AEN</td></tr><tr><td style="text-align: center;"><img src="legend/Nuclearwasterepositories_5_Andra1.png" /></td><td>Andra</td></tr><tr><td style="text-align: center;"><img src="legend/Nuclearwasterepositories_5_CEACivil2.png" /></td><td>CEA Civil</td></tr><tr><td style="text-align: center;"><img src="legend/Nuclearwasterepositories_5_CEADAM3.png" /></td><td>CEA DAM</td></tr><tr><td style="text-align: center;"><img src="legend/Nuclearwasterepositories_5_Defense4.png" /></td><td>Defense</td></tr><tr><td style="text-align: center;"><img src="legend/Nuclearwasterepositories_5_Dfense5.png" /></td><td>D�fense</td></tr><tr><td style="text-align: center;"><img src="legend/Nuclearwasterepositories_5_EDF6.png" /></td><td>EDF</td></tr><tr><td style="text-align: center;"><img src="legend/Nuclearwasterepositories_5_Framatome7.png" /></td><td>Framatome</td></tr><tr><td style="text-align: center;"><img src="legend/Nuclearwasterepositories_5_Industrie8.png" /></td><td>Industrie</td></tr><tr><td style="text-align: center;"><img src="legend/Nuclearwasterepositories_5_Orano9.png" /></td><td>Orano</td></tr><tr><td style="text-align: center;"><img src="legend/Nuclearwasterepositories_5_10.png" /></td><td></td></tr></table>': layer_Nuclearwasterepositories_5,'<img src="legend/Metropolitanuranium_mines_4.png" /> Metropolitan-uranium_mines': layer_Metropolitanuranium_mines_4,'Atomic tests<br /><table><tr><td style="text-align: center;"><img src="legend/Atomictests_3_0100.png" /></td><td>0 - 10</td></tr><tr><td style="text-align: center;"><img src="legend/Atomictests_3_10401.png" /></td><td>10 - 40</td></tr><tr><td style="text-align: center;"><img src="legend/Atomictests_3_40802.png" /></td><td>40 - 80</td></tr><tr><td style="text-align: center;"><img src="legend/Atomictests_3_801503.png" /></td><td>80 - 150</td></tr><tr><td style="text-align: center;"><img src="legend/Atomictests_3_1503304.png" /></td><td>150 - 330</td></tr><tr><td style="text-align: center;"><img src="legend/Atomictests_3_3305905.png" /></td><td>330 - 590</td></tr><tr><td style="text-align: center;"><img src="legend/Atomictests_3_59012806.png" /></td><td>590 - 1280</td></tr><tr><td style="text-align: center;"><img src="legend/Atomictests_3_128026007.png" /></td><td>1280 - 2600</td></tr></table>': layer_Atomictests_3,'<img src="legend/Frenchcontrolleduraniunmines_2.png" /> French controlled uraniun mines': layer_Frenchcontrolleduraniunmines_2,'<img src="legend/Nuclearplant_1.png" /> Nuclear plant': layer_Nuclearplant_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
         setBounds();
         </script>
     </body>
